@@ -1,36 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lamberto Nunez - Agentic AI Portfolio
 
-## Getting Started
+A high-performance, futuristic portfolio designed for an **Agentic AI Systems Architect**. Built with **Next.js 16**, **React 19**, and **Tailwind CSS v4** to demonstrate engineering excellence and aesthetic precision.
 
-First, run the development server:
+## 🚀 Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+* **Glassmorphism UI**: A consistent, premium design system utilizing CSS variables for translucent glazes, blurs, and ambient glows.
+* **Interactive Playground**: A functional terminal sandbox and skill assessment quiz to engage visitors.
+* **Performance First**:
+  * Zero-runtime CSS-in-JS (via Tailwind v4).
+  * `IntersectionObserver` for heavy scroll animations (no scroll listeners).
+  * Optimized images and font loading.
+* **Responsive & Accessible**: Fluid layouts that adapt seamlessly from mobile to ultrawide displays.
+
+## 🛠️ Technical Stack
+
+* **Framework**: Next.js 16.1 (App Router, Turbopack)
+* **Core**: React 19, TypeScript
+* **Styling**: Tailwind CSS v4, PostCSS
+* **Motion**: Framer Motion (for complex gestures), CSS Native Transitions (for layout)
+* **Icons**: Lucide React
+
+## 📂 Project Structure
+
+```text
+src/
+├── app/                  # Next.js App Router root
+│   ├── globals.css       # Global styles & Tailwind @theme config
+│   ├── layout.tsx        # Root layout with metadata
+│   └── page.tsx          # Main single-page composition
+├── components/           # UI Components
+│   ├── Hero.tsx          # Landing section with ambient animations
+│   ├── Playground.tsx    # Interactive terminal & quiz
+│   ├── Roadmap.tsx       # Phase-based engineering roadmap
+│   ├── TechStack.tsx     # Categorized technology grid
+│   ├── Section.tsx       # Reusable wrapper for scroll animations
+│   └── ...
+├── hooks/                # Custom React Hooks
+│   └── useIntersectionObserver.ts  # Viewport visibility logic
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏗️ Engineering Decisions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Native IntersectionObserver**:
+    We avoid heavy scroll event listeners that cause layout thrashing. Instead, a custom `useIntersectionObserver` hook toggles CSS classes (`opacity-0` -> `opacity-100`) as elements enter the viewport, ensuring 60fps scrolling.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Tailwind v4 (@theme)**:
+    Leveraging the latest CSS-first configuration to define design tokens (colors, gradients, blurs) directly in CSS variables, allowing for dynamic runtime adjustments and cleaner build outputs.
 
-## Learn More
+3. **Component Architecture**:
+    Each section is self-contained with its own logic and state, promoting maintainability. The `Section` component acts as a higher-order boundary for animations.
 
-To learn more about Next.js, take a look at the following resources:
+## 🏃‍♂️ Getting Started
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Install Dependencies**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+    ```bash
+    npm install
+    ```
 
-## Deploy on Vercel
+2. **Run Development Server**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    ```bash
+    npm run dev
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Open [http://localhost:3000](http://localhost:3000).
+
+3. **Build for Production**:
+
+    ```bash
+    npm run build
+    npm run start
+    ```
+
+## 🚢 Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions on deploying to Vercel or other platforms.
